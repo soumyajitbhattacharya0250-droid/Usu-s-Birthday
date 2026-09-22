@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ushu ❤️</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:
+radial-gradient(circle at 10% 10%,rgba(255,205,170,.2),transparent 28%),
+radial-gradient(circle at 90% 20%,rgba(255,166,193,.18),transparent 30%),
+radial-gradient(circle at 50% 80%,rgba(215,153,119,.13),transparent 35%),
+#160d13;
+color:#fff7f2;
+overflow-x:hidden
+}
+
+.intro{
+position:fixed;
+inset:0;
+z-index:1000;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:linear-gradient(135deg,#190b13,#3a1723,#1c0c13);
+transition:opacity .8s,visibility .8s
+}
+
+.intro.hide{
+opacity:0;
+visibility:hidden
+}
+
+.intro-box{
+padding:40px 28px;
+max-width:700px
+}
+
+.intro h1{
+font-family:Georgia,serif;
+font-size:clamp(2.4rem,8vw,5.5rem);
+margin:15px 0;
+color:#ffe9d8
+}
+
+.intro p{
+font-size:1.15rem;
+color:#f5c9c2;
+margin-bottom:28px
+}
+
+.start-btn,.music-btn,.close-btn{
+border:0;
+cursor:pointer;
+border-radius:999px;
+padding:14px 25px;
+font-weight:700
+}
+
+.start-btn{
+background:linear-gradient(135deg,#e7a17d,#f4c6a5);
+color:#35131d;
+font-size:1rem;
+box-shadow:0 10px 30px rgba(236,151,123,.3)
+}
+
+.music-btn{
+position:fixed;
+right:20px;
+top:20px;
+z-index:50;
+background:rgba(255,232,219,.12);
+color:#ffe8d9;
+border:1px solid rgba(255,220,204,.3);
+backdrop-filter:blur(10px)
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:90px 20px 50px;
+position:relative
+}
+
+.hero-content{
+max-width:900px;
+z-index:2
+}
+
+.eyebrow{
+font-size:1rem;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#e9b7a5
+}
+
+.hero h2{
+font-family:Georgia,serif;
+font-size:clamp(3rem,9vw,7rem);
+line-height:1;
+margin:12px 0;
+background:linear-gradient(90deg,#fff3e7,#e9a889,#ffe0c5);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent
+}
+
+.hero h3{
+font-size:clamp(1.4rem,4vw,2.5rem);
+color:#ffd6c5;
+font-weight:600
+}
+
+.hero p{
+max-width:650px;
+margin:25px auto;
+font-size:1.05rem;
+line-height:1.8;
+color:#eaccc6
+}
+
+.cake{
+font-size:6rem;
+animation:float 3s ease-in-out infinite;
+margin:25px
+}
+
+.balloon,.heart{
+position:fixed;
+pointer-events:none;
+z-index:1;
+opacity:.65
+}
+
+.balloon{
+font-size:2rem;
+animation:rise 12s linear infinite
+}
+
+.b1{left:8%;bottom:-80px;animation-delay:0s}
+.b2{left:80%;bottom:-100px;animation-delay:3s}
+.b3{left:45%;bottom:-100px;animation-delay:6s}
+.b4{left:65%;bottom:-100px;animation-delay:9s}
+
+.heart{
+font-size:1.5rem;
+animation:heartFloat 7s ease-in-out infinite
+}
+
+.section{
+max-width:1100px;
+margin:auto;
+padding:90px 20px
+}
+
+.section-title{
+text-align:center;
+font-family:Georgia,serif;
+font-size:clamp(2rem,5vw,3.5rem);
+color:#ffe5d6;
+margin-bottom:14px
+}
+
+.section-sub{
+text-align:center;
+color:#dcb9b4;
+margin-bottom:50px
+}
+
+.memories{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px
+}
+
+.memory{
+background:rgba(255,245,239,.07);
+border:1px solid rgba(255,215,198,.16);
+border-radius:24px;
+padding:16px;
+box-shadow:0 15px 45px rgba(0,0,0,.22);
+opacity:0;
+transform:translateY(35px);
+transition:.8s
+}
+
+.memory.show{
+opacity:1;
+transform:translateY(0)
+}
+
+.memory img{
+width:100%;
+height:430px;
+object-fit:cover;
+border-radius:18px;
+display:block;
+background:#2a151d
+}
+
+.memory h4{
+margin:18px 4px 8px;
+color:#f3b69e;
+font-size:1.15rem
+}
+
+.memory p{
+color:#e8d0cb;
+line-height:1.7;
+margin:0 4px 6px;
+font-size:.98rem
+}
+
+.gift-wrap{
+text-align:center;
+padding:80px 20px
+}
+
+.gift{
+font-size:8rem;
+cursor:pointer;
+display:inline-block;
+filter:drop-shadow(0 15px 25px rgba(0,0,0,.35));
+animation:giftPulse 1.8s infinite
+}
+
+.gift-text{
+margin-top:15px;
+color:#efc8bb;
+font-size:1.1rem
+}
+
+.final{
+max-width:800px;
+margin:0 auto 100px;
+text-align:center;
+padding:55px 30px;
+border-radius:30px;
+background:linear-gradient(135deg,rgba(231,161,125,.12),rgba(255,205,190,.06));
+border:1px solid rgba(255,220,204,.16)
+}
+
+.final h2{
+font-family:Georgia,serif;
+font-size:clamp(2rem,5vw,3.3rem);
+color:#ffe8d9;
+margin-bottom:20px
+}
+
+.final p{
+line-height:1.9;
+color:#ead0cb;
+font-size:1.05rem
+}
+
+.footer{
+text-align:center;
+color:#a98b8d;
+padding:0 20px 40px;
+font-size:.9rem
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(10,3,7,.82);
+backdrop-filter:blur(8px);
+z-index:2000;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px
+}
+
+.modal.open{
+display:flex
+}
+
+.modal-box{
+max-width:650px;
+text-align:center;
+background:linear-gradient(145deg,#3a1824,#1e0c14);
+border:1px solid rgba(255,220,204,.25);
+border-radius:28px;
+padding:45px 28px;
+box-shadow:0 30px 80px rgba(0,0,0,.5);
+animation:pop .45s ease;
+max-height:90vh;
+overflow-y:auto
+}
+
+.modal-box .big{
+font-size:5rem
+}
+
+.modal-box h2{
+font-family:Georgia,serif;
+font-size:2.5rem;
+color:#ffe7d8;
+margin:12px 0
+}
+
+.modal-box>p{
+color:#eaccc6;
+line-height:1.8
+}
+
+.close-btn{
+margin-top:25px;
+background:#f0b28f;
+color:#35131d
+}
+
+.confetti{
+position:fixed;
+width:9px;
+height:14px;
+top:-20px;
+z-index:3000;
+animation:confettiFall 3s linear forwards
+}
+
+.love-letter{
+margin-top:30px;
+text-align:left;
+background:linear-gradient(135deg,rgba(255,238,226,.10),rgba(255,204,190,.05));
+border:1px solid rgba(255,220,204,.22);
+border-radius:22px;
+padding:28px 24px;
+box-shadow:inset 0 0 30px rgba(255,180,160,.04)
+}
+
+.love-letter h3{
+text-align:center;
+font-family:Georgia,serif;
+color:#ffd8c8;
+font-size:1.8rem;
+margin-bottom:18px
+}
+
+.love-letter p{
+color:#efd9d5;
+line-height:1.9;
+font-size:1rem;
+margin-bottom:14px
+}
+
+.love-letter .signature{
+text-align:right;
+font-family:Georgia,serif;
+color:#f3b69e;
+font-size:1.15rem;
+margin-top:20px
+}
+
+.letter-heart{
+text-align:center;
+font-size:1.7rem;
+margin-bottom:8px
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-14px)}
+}
+
+@keyframes rise{
+0%{transform:translateY(0) rotate(0);opacity:0}
+10%{opacity:.7}
+100%{transform:translateY(-120vh) rotate(25deg);opacity:0}
+}
+
+@keyframes heartFloat{
+0%,100%{transform:translateY(0) scale(1)}
+50%{transform:translateY(-35px) scale(1.12)}
+}
+
+@keyframes giftPulse{
+0%,100%{transform:scale(1) rotate(-2deg)}
+50%{transform:scale(1.08) rotate(2deg)}
+}
+
+@keyframes pop{
+from{transform:scale(.8);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+@keyframes confettiFall{
+to{
+transform:translate3d(var(--x),110vh,0) rotate(720deg);
+opacity:0
+}
+}
+
+@media(max-width:760px){
+
+.memories{
+grid-template-columns:1fr
+}
+
+.memory img{
+height:390px
+}
+
+.section{
+padding:65px 15px
+}
+
+.hero{
+padding-top:90px
+}
+
+.music-btn{
+right:12px;
+top:12px
+}
+
+.cake{
+font-size:5rem
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="intro" id="intro">
+<div class="intro-box">
+
+<div style="font-size:3rem">💌✨🎂✨💌</div>
+
+<h1>A Little Surprise For You</h1>
+
+<p>
+Ushu, I made a tiny corner of the internet just for you. ❤️
+</p>
+
+<button class="start-btn" onclick="startExperience()">
+Open Your Surprise 💝
+</button>
+
+</div>
+</div>
+
+
+<!-- MUSIC -->
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+🎵 Music
+</button>
+
+
+<!-- FLOATING BALLOONS -->
+<div class="balloon b1">🎈</div>
+<div class="balloon b2">🎈</div>
+<div class="balloon b3">🎈</div>
+<div class="balloon b4">🎈</div>
+
+
+<!-- HERO -->
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+Today is all about you ✨
+</div>
+
+<div class="cake">
+🎂
+</div>
+
+<h2>
+Happy Birthday
+</h2>
+
+<h3>
+My Beautiful Ushu ❤️
+</h3>
+
+<p>
+Some people make ordinary days feel special. You somehow make even the smallest
+moments worth remembering. So here is a little collection of memories, smiles,
+chaos and love — made especially for you. 🥹❤️
+</p>
+
+</div>
+
+</section>
+
+
+<!-- MEMORIES -->
+<section class="section">
+
+<h2 class="section-title">
+Our Little Memory Lane 📸
+</h2>
+
+<p class="section-sub">
+15 little memories, 15 little pieces of my heart. ❤️
+</p>
+
+<div class="memories">
+
+
+<div class="memory">
+<img src="photos/memory1.jpg" alt="Memory 1">
+<h4>Memory 01 ❤️</h4>
+<p>
+This was the first time I fell in love with you. Do you remember this place?
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory2.jpg" alt="Memory 2">
+<h4>Memory 02 🫶</h4>
+<p>
+The first time I got permission to touch you… a tiny moment that meant so much to me.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory3.jpg" alt="Memory 3">
+<h4>Memory 03 🎨❤️</h4>
+<p>
+You drew this image, and I want to fulfil this beautiful dream and turn it into reality.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory4.jpg" alt="Memory 4">
+<h4>Memory 04 🥹</h4>
+<p>
+This innocent face gives me peace. Somehow, just looking at you makes everything feel a little better.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory5.jpg" alt="Memory 5">
+<h4>Memory 05 💕</h4>
+<p>
+After a long storm, we got another chance to be close to each other… and I will always cherish that.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory6.jpg" alt="Memory 6">
+<h4>Memory 06 👀❤️</h4>
+<p>
+These eyes always attract me. I keep falling in love with them, again and again.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory7.jpg" alt="Memory 7">
+<h4>Memory 07 😘</h4>
+<p>
+Oh, my sweety… I love this craziness of yours. Please never stop being this wonderfully you.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory8.jpg" alt="Memory 8">
+<h4>Memory 08 🏡❤️</h4>
+<p>
+It was your first visit to your own home… another little moment that became special because it was with you.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory9.jpg" alt="Memory 9">
+<h4>Memory 09 🌹</h4>
+<p>
+Some of the cutest moments are the simplest ones.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory10.jpg" alt="Memory 10">
+<h4>Memory 10 🥰</h4>
+<p>
+Flower for my flower. 🌸 Because somehow, every flower reminds me of you.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory11.jpg" alt="Memory 11">
+<h4>Memory 11 💍❤️</h4>
+<p>
+Have you remember this day?… and somehow, in my heart, I want us together through every lifetime.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory12.jpg" alt="Memory 12">
+<h4>Memory 12 🤝❤️</h4>
+<p>
+I want to hold this hand forever. No matter where life takes us, I want to keep holding on.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory13.jpg" alt="Memory 13">
+<h4>Memory 13 🥹🌸</h4>
+<p>
+This was your childhood… so innocent, so simple, so pure. I wish I could have known you even then.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory14.jpg" alt="Memory 14">
+<h4>Memory 14 👀💕</h4>
+<p>
+Maybe we talk by our eyes… because sometimes our hearts understand what words cannot say.
+</p>
+</div>
+
+
+<div class="memory">
+<img src="photos/memory15.jpg" alt="Memory 15">
+<h4>Memory 15 ❤️∞</h4>
+<p>
+Just hold me and love me like that forever. That is all I ever want.
+</p>
+</div>
+
+
+</div>
+</section>
+
+
+<!-- GIFT -->
+<section class="gift-wrap">
+
+<div class="gift" onclick="openSurprise()">
+🎁
+</div>
+
+<div class="gift-text">
+There is one more little surprise… click the gift 🎁
+</div>
+
+</section>
+
+
+<!-- FINAL MESSAGE -->
+<section class="final">
+
+<h2>
+For You, Ushu ❤️
+</h2>
+
+<p>
+
+Happy Birthday to the person who has become such a beautiful part of my life. ❤️
+
+<br><br>
+
+I may not always know how to express everything I feel, but you mean more to me
+than words can ever explain. Your smile, your eyes, your craziness, our little
+moments, and even our difficult times have all become precious memories to me. 🥹❤️
+
+<br><br>
+
+I just want to keep making memories with you, holding your hand, making you smile,
+and falling in love with you again and again. I don't know what the future holds,
+but I know I want you to be a part of it. ❤️♾️
+
+<br><br>
+
+<strong>
+Happy Birthday, my Love. 🎂🌹✨
+<br>
+I Love You, Ushu. ❤️
+</strong>
+
+</p>
+
+</section>
+
+
+<!-- FOOTER -->
+<div class="footer">
+Made with ❤️, memories & a little bit of JavaScript.
+</div>
+
+
+<!-- SURPRISE MODAL -->
+<div class="modal" id="modal">
+
+<div class="modal-box">
+
+<div class="big">
+💖🎂💖
+</div>
+
+<h2>
+I LOVE YOU, Khepi! 🥰
+</h2>
+
+<p>
+If I could give you one thing today, it would be the ability to see yourself
+through my eyes — because then you would understand just how special you are to me. ❤️
+
+<br><br>
+
+Now make a wish… and keep that beautiful smile. ✨
+</p>
+
+
+<!-- NEW LOVE LETTER -->
+<div class="love-letter">
+
+<div class="letter-heart">
+💌❤️💌
+</div>
+
+<h3>
+A Little Love Letter For You
+</h3>
+
+<p>
+Dear Ushu,
+</p>
+
+<p>
+I don't always know how to put my feelings into words, but I want you to know
+how much you mean to me. Somewhere between all our little moments, our laughter,
+our fights, our craziness and our memories, you became one of the most beautiful
+parts of my life. ❤️
+</p>
+
+<p>
+I still remember so many little things about us — your smile, your eyes,
+the way you hold my hand, your innocent face and even your crazy little ways.
+These may look like small things, but for me, they are the moments that make
+our story special. 🥹❤️
+</p>
+
+<p>
+You have given me memories that I never want to lose. Some of them make me smile,
+some make me emotional, and some simply make me think about how lucky I am to have
+you in my life.
+</p>
+
+<p>
+I don't know exactly what the future holds for us, but I know what I want.
+I want to keep making memories with you, keep holding your hand, keep making you
+smile, keep annoying you, keep laughing with you, and keep falling in love with
+you again and again. ❤️♾️
+</p>
+
+<p>
+On your birthday, I just want you to remember that you are deeply loved,
+genuinely valued, and incredibly special to me. Thank you for being you,
+and thank you for becoming such an important part of my life.
+</p>
+
+<p>
+<strong>
+Just stay beside me, hold my hand, and love me like this forever. ❤️
+</strong>
+</p>
+
+<p>
+Happy Birthday, my Love. 🎂🌹✨
+<br>
+I Love You, Ushu. ❤️
+</p>
+
+<div class="signature">
+Forever yours,
+<br>
+Suji ❤️
+</div>
+
+</div>
+
+
+<button class="close-btn" onclick="closeSurprise()">
+Close My Letter 💕
+</button>
+
+</div>
+</div>
+
+
+<script>
+
+let audioCtx=null,
+musicPlaying=false,
+musicTimer=null,
+melodyIndex=0;
+
+const notes={
+C4:261.63,
+D4:293.66,
+E4:329.63,
+F4:349.23,
+G4:392.00,
+A4:440.00,
+B4:493.88,
+C5:523.25,
+D5:587.33,
+E5:659.25,
+F5:698.46,
+G5:783.99
+};
+
+const birthdayMelody=[
+['G4',1],
+['G4',1],
+['A4',2],
+['G4',2],
+['C5',2],
+['B4',4],
+
+['G4',1],
+['G4',1],
+['A4',2],
+['G4',2],
+['D5',2],
+['C5',4],
+
+['G4',1],
+['G4',1],
+['G5',2],
+['E5',2],
+['C5',2],
+['B4',2],
+['A4',4],
+
+['F5',1],
+['F5',1],
+['E5',2],
+['C5',2],
+['D5',2],
+['C5',4]
+];
+
+
+function playNote(name,duration){
+
+if(!audioCtx)return;
+
+const now=audioCtx.currentTime;
+
+const osc=audioCtx.createOscillator();
+const gain=audioCtx.createGain();
+
+osc.type='sine';
+
+osc.frequency.value=notes[name]||440;
+
+gain.gain.setValueAtTime(0.0001,now);
+
+gain.gain.exponentialRampToValueAtTime(
+0.14,
+now+0.025
+);
+
+gain.gain.exponentialRampToValueAtTime(
+0.0001,
+now+duration*.88
+);
+
+osc.connect(gain);
+gain.connect(audioCtx.destination);
+
+osc.start(now);
+
+osc.stop(now+duration)
+
+}
+
+
+function playBirthdayStep(){
+
+if(!musicPlaying)return;
+
+const [name,beats]=birthdayMelody[melodyIndex];
+
+const secondsPerBeat=.48;
+
+playNote(
+name,
+beats*secondsPerBeat
+);
+
+melodyIndex=
+(melodyIndex+1)%birthdayMelody.length;
+
+musicTimer=setTimeout(
+playBirthdayStep,
+beats*secondsPerBeat*1000
+);
+
+}
+
+
+function startBirthdayMusic(){
+
+if(!audioCtx)
+audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+
+if(audioCtx.state==='suspended')
+audioCtx.resume();
+
+if(musicPlaying)return;
+
+musicPlaying=true;
+
+document.getElementById('musicBtn').textContent='🔊 Music ON';
+
+playBirthdayStep();
+
+}
+
+
+function stopBirthdayMusic(){
+
+musicPlaying=false;
+
+if(musicTimer)
+clearTimeout(musicTimer);
+
+musicTimer=null;
+
+document.getElementById('musicBtn').textContent='🎵 Music';
+
+}
+
+
+function toggleMusic(){
+
+musicPlaying
+?stopBirthdayMusic()
+:startBirthdayMusic();
+
+}
+
+
+function startExperience(){
+
+document
+.getElementById('intro')
+.classList.add('hide');
+
+startBirthdayMusic();
+
+makeConfetti(70);
+
+}
+
+
+function makeConfetti(count=50){
+
+for(let i=0;i<count;i++){
+
+const c=document.createElement('div');
+
+c.className='confetti';
+
+c.style.left=
+Math.random()*100+'vw';
+
+c.style.setProperty(
+'--x',
+(Math.random()*300-150)+'px'
+);
+
+c.style.animationDelay=
+(Math.random()*1.5)+'s';
+
+c.style.transform=
+'rotate('+Math.random()*360+'deg)';
+
+document.body.appendChild(c);
+
+setTimeout(
+()=>c.remove(),
+4500
+);
+
+}
+
+}
+
+
+function openSurprise(){
+
+document
+.getElementById('modal')
+.classList.add('open');
+
+makeConfetti(100);
+
+}
+
+
+function closeSurprise(){
+
+document
+.getElementById('modal')
+.classList.remove('open');
+
+}
+
+
+document.addEventListener(
+'keydown',
+e=>{
+if(e.key==='Escape')
+closeSurprise();
+}
+);
+
+
+const observer=new IntersectionObserver(
+entries=>
+entries.forEach(
+entry=>{
+if(entry.isIntersecting)
+entry.target.classList.add('show')
+}
+),
+{threshold:.12}
+);
+
+
+document
+.querySelectorAll('.memory')
+.forEach(
+x=>observer.observe(x)
+);
+
+
+for(let i=0;i<12;i++){
+
+const h=document.createElement('div');
+
+h.className='heart';
+
+h.textContent=
+i%2?'💗':'💕';
+
+h.style.left=
+Math.random()*100+'vw';
+
+h.style.top=
+Math.random()*100+'vh';
+
+h.style.animationDelay=
+Math.random()*5+'s';
+
+document.body.appendChild(h);
+
+}
+
+</script>
+
+</body>
+</html>
